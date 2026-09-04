@@ -1,270 +1,665 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jyotish Kumar | Systems Software Engineer</title>
-    <meta name="description" content="Portfolio of Jyotish Kumar, Systems Software and Backend Engineer specializing in low-latency, multithreaded systems.">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Canvas for Particle Background -->
-    <canvas id="particle-canvas"></canvas>
+    <title>Jyotish Kumar | Systems Software &amp; Backend Engineer</title>
+    <meta
+      name="description"
+      content="Jyotish Kumar — Systems Software & Backend Engineer focused on C++ systems, TCP servers, matching engines, concurrency, performance, and rigorous testing."
+    />
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="#home" class="logo">JK<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
+    <meta
+      property="og:title"
+      content="Jyotish Kumar | Systems Software & Backend Engineer"
+    />
+    <meta
+      property="og:description"
+      content="C++ systems built from first principles: event-driven TCP servers, a matching engine, a persistent key-value store, benchmarks, chaos tests, and sanitizer-clean test suites."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://jyotish-kumar29.github.io/assets/og-image.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <nav class="navbar" aria-label="Primary navigation">
+      <div class="nav-content">
+        <a href="#home" class="logo" aria-label="Jyotish Kumar home"
+          >JK<span>.</span></a
+        >
+
+        <ul class="nav-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+
+        <button
+          type="button"
+          class="hamburger"
+          aria-label="Open navigation menu"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu">
-        <div class="close-menu"><i class="fas fa-times"></i></div>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-        </ul>
+    <div class="mobile-menu" aria-label="Mobile navigation">
+      <button
+        type="button"
+        class="close-menu"
+        aria-label="Close navigation menu"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
     </div>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero section">
-            <div class="hero-content reveal">
-                <p class="greeting">Hi, I'm</p>
-                <h1 class="name">Jyotish Kumar</h1>
-                <h2 class="role">Systems Software & Backend Engineer</h2>
-                <p class="hero-subtitle">Specializing in low-latency, multithreaded systems in C++ and distributed architecture.</p>
-                
-                <div class="hero-cta">
-                    <a href="#projects" class="btn primary-btn">View My Work</a>
-                    <a href="mailto:jkumar.879688@gmail.com" class="btn secondary-btn">Contact Me</a>
-                </div>
-                
-                <div class="social-links">
-                    <a href="https://github.com/Jyotish-Kumar29" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/jyotish-kumar-" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:jkumar.879688@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            <div class="scroll-indicator">
-                <span>Scroll</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </section>
+      <!-- =========================================================
+           HERO
+           The goal is immediate positioning: role, technical focus,
+           strongest proof, then a clear path into the projects.
+           ========================================================= -->
+      <section id="home" class="hero section">
+        <div class="hero-content reveal">
+          <p class="greeting">Systems Software &amp; Backend Engineer</p>
 
-        <!-- About Section -->
-        <section id="about" class="about section">
-            <div class="container reveal">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>Systems Software and Backend Engineer with a rigorous foundation in Mathematics and Computing from <strong>IIT Guwahati</strong>. Specializes in developing low-latency, multithreaded systems in C++ with a strong focus on distributed architecture, memory management, and high-throughput network I/O.</p>
-                        <p>Proven ability to architect production-grade infrastructure, evidenced by a custom TCP Key-Value store handling 211,000+ RPS. Strong algorithmic problem solver bringing high-level analytical and cross-functional leadership skills from academic management to tackle complex backend engineering challenges.</p>
-                    </div>
-                    <div class="about-highlights">
-                        <div class="highlight-card">
-                            <i class="fas fa-server"></i>
-                            <h3>Backend Architecture</h3>
-                            <p>Building high-throughput, low-latency scalable systems.</p>
-                        </div>
-                        <div class="highlight-card">
-                            <i class="fas fa-microchip"></i>
-                            <h3>Systems Engineering</h3>
-                            <p>Multithreading, Socket Programming, and Memory Management in C/C++.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <h1 class="name">Jyotish Kumar</h1>
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills section">
-            <div class="container reveal">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3><i class="fas fa-code"></i> Languages</h3>
-                        <div class="skill-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">C</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">HTML/CSS</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-network-wired"></i> Backend & Systems</h3>
-                        <div class="skill-tags">
-                            <span class="tag">Multithreading</span>
-                            <span class="tag">Socket Programming</span>
-                            <span class="tag">TCP/IP</span>
-                            <span class="tag">Low-Latency Optimization</span>
-                            <span class="tag">Object-Oriented Design</span>
-                            <span class="tag">ACID-lite Persistence</span>
-                            <span class="tag">Asynchronous I/O</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-tools"></i> Tools & Frameworks</h3>
-                        <div class="skill-tags">
-                            <span class="tag">Git</span>
-                            <span class="tag">Linux</span>
-                            <span class="tag">GTest</span>
-                            <span class="tag">GBench</span>
-                            <span class="tag">CMake</span>
-                            <span class="tag">Bash</span>
-                            <span class="tag">MongoDB</span>
-                            <span class="tag">MySQL</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-brain"></i> Core CS Knowledge</h3>
-                        <div class="skill-tags">
-                            <span class="tag">Data Structures</span>
-                            <span class="tag">Algorithms</span>
-                            <span class="tag">Operating Systems</span>
-                            <span class="tag">Database Management</span>
-                            <span class="tag">Computer Networks</span>
-                            <span class="tag">Scientific Computing</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <h2 class="role">
+            C++ systems, networking, concurrency &amp; performance
+          </h2>
 
-        <!-- Experience & Education Section -->
-        <section id="experience" class="timeline-section section">
-            <div class="container reveal">
-                <h2 class="section-title">Experience & Education</h2>
-                <div class="timeline">
-                    <!-- Experience Item -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Academic Manager (OCFP)</h3>
-                                <span class="timeline-date">May 2025 – Present</span>
-                            </div>
-                            <h4 class="timeline-company">K12 Techno Services (Orchids International School)</h4>
-                            <p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Bangalore, KA & Indore, MP</p>
-                            <ul class="timeline-list">
-                                <li>Directed central academic operations by managing a 5-member team to develop Learning Plans and execute strategic initiatives, including daily rigor worksheets.</li>
-                                <li>Delivered foundational Mathematics curriculum for Grade 10, covering advanced concepts to elevate students' analytical problem-solving capabilities to JEE Advanced proficiency.</li>
-                                <li>Streamlined cross-branch academic workflows by conducting practical Physics labs for Grades 6-12 and overseeing comprehensive curriculum evaluations.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Education Item -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>B.Tech in Mathematics and Computing</h3>
-                                <span class="timeline-date">2021 – 2025</span>
-                            </div>
-                            <h4 class="timeline-company">Indian Institute of Technology (IIT) Guwahati</h4>
-                            <p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Guwahati, Assam</p>
-                            <ul class="timeline-list">
-                                <li><strong>Relevant Coursework:</strong> Data Structures and Algorithms, Design and Analysis of Algorithms, Operating Systems, Database Management Systems, Computer Networks, Discrete Mathematics, Probability Theory, Monte-Carlo Simulation, Optimization, Linear Algebra, Financial Engineering.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <p class="hero-subtitle">
+            I build low-latency backend systems from first principles —
+            including a non-blocking epoll TCP matching engine and a persistent
+            in-memory key-value store. I benchmark them under load, test failure
+            modes, and document the limits instead of hiding them.
+          </p>
 
-        <!-- Projects & Achievements Section -->
-        <section id="projects" class="projects section">
-            <div class="container reveal">
-                <h2 class="section-title">Projects & Achievements</h2>
-                
-                <h3 class="subsection-title">Technical Projects</h3>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3>C++ Key-Value Store</h3>
-                                <a href="https://github.com/Jyotish-Kumar29/cpp-kv-store" target="_blank" class="github-link" aria-label="GitHub Repository"><i class="fab fa-github"></i></a>
-                            </div>
-                            <div class="project-tech">
-                                <span>C++</span><span>Multithreading</span><span>TCP</span><span>GTest</span><span>GBench</span>
-                            </div>
-                            <ul class="project-details">
-                                <li>Engineered a multithreaded, persistent KV storage engine over raw TCP, implementing an Append-Only File (AOF) logging mechanism.</li>
-                                <li>Architected a resilient network layer capable of handling severe TCP stream chaos, parsing byte-stream fragmentation without overflows.</li>
-                                <li>Achieved peak throughput of <strong>211,958 requests/second</strong> and sustained 96.4M continuous requests with zero failures in endurance tests.</li>
-                                <li>Maintained ultra-low baseline p50 latency of <strong>11.69 µs</strong> and p99 tail latency of 15.10 µs.</li>
-                                <li>Profiled system under heavy lock contention utilizing reader-writer lock strategies to keep p50 response times under 45 µs.</li>
-                            </ul>
-                        </div>
-                    </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="stat-num">218K+</span>
+              <span class="stat-label">requests handled per second</span>
+              <span class="stat-context">Key-value store peak</span>
+            </div>
+
+            <div class="hero-stat">
+              <span class="stat-num">64.5K</span>
+              <span class="stat-label">TCP connections at once</span>
+              <span class="stat-context">Matching engine load test</span>
+            </div>
+
+            <div class="hero-stat">
+              <span class="stat-num">105</span>
+              <span class="stat-label">automated tests passed</span>
+              <span class="stat-context">Checked with ASan &amp; TSan</span>
+            </div>
+          </div>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn primary-btn">View Projects</a>
+            <a href="mailto:jkumar.879688@gmail.com" class="btn secondary-btn">
+              Get In Touch
+            </a>
+          </div>
+
+          <div class="social-links">
+            <a
+              href="https://github.com/Jyotish-Kumar29"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+
+            <a
+              href="https://linkedin.com/in/jyotish-kumar-"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+            <a
+              href="mailto:jkumar.879688@gmail.com"
+              aria-label="Email Jyotish Kumar"
+            >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="scroll-indicator">
+          <span>Explore the work</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           PROJECTS
+           This is deliberately the strongest section on the site.
+           ========================================================= -->
+      <section id="projects" class="projects section">
+        <div class="container reveal">
+          <h2 class="section-title">Projects</h2>
+
+          <div class="projects-grid">
+            <!-- Matching Engine -->
+            <article class="project-card">
+              <div class="project-content">
+                <div class="project-header">
+                  <div>
+                    <h3>C++ Matching Engine</h3>
+                  </div>
+
+                  <a
+                    href="https://github.com/Jyotish-Kumar29/cpp-matching-engine"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="github-link"
+                    aria-label="View C++ Matching Engine on GitHub"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
                 </div>
 
-                <h3 class="subsection-title mt-xl">Algorithmic Achievements</h3>
-                <div class="achievements-grid">
-                    <div class="achievement-card leetcode">
-                        <div class="achievement-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="achievement-info">
-                            <h4>LeetCode</h4>
-                            <a href="https://leetcode.com/u/jyotish__kumar_/" target="_blank" class="achievement-link">Profile <i class="fas fa-external-link-alt"></i></a>
-                            <p>Solved <strong>751</strong> problems with a peak contest rating of <strong>1711</strong> (Top 13.51%) and a 177-day active maximum streak.</p>
-                        </div>
-                    </div>
-                    <div class="achievement-card gfg">
-                        <div class="achievement-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div class="achievement-info">
-                            <h4>GeeksforGeeks</h4>
-                            <a href="https://www.geeksforgeeks.org/profile/jyotish_kumar" target="_blank" class="achievement-link">Profile <i class="fas fa-external-link-alt"></i></a>
-                            <p>Solved <strong>603</strong> problems, achieving a coding score of <strong>2001</strong>, a 198-day POTD streak, and an Institute Rank of 65.</p>
-                        </div>
-                    </div>
+                <p class="project-tagline">
+                  A single-instrument limit order book and TCP matching engine
+                  designed around deterministic matching and a hand-rolled,
+                  non-blocking epoll event loop.
+                </p>
+
+                <div class="project-tech">
+                  <span>C++17</span>
+                  <span>epoll</span>
+                  <span>TCP</span>
+                  <span>GTest</span>
+                  <span>ASan</span>
+                  <span>UBSan</span>
+                  <span>TSan</span>
                 </div>
+
+                <ul class="project-details">
+                  <li>
+                    Implemented price-time priority matching with partial fills,
+                    cancellation, ownership checks, self-trade handling, and
+                    multiple-price-level sweeps.
+                  </li>
+
+                  <li>
+                    Served clients through a custom non-blocking
+                    <strong>epoll-based event loop</strong> rather than a
+                    thread-per-connection or networking framework.
+                  </li>
+
+                  <li>
+                    Sustained <strong>64,508 concurrent TCP connections</strong>
+                    for a 2-minute load test with zero failures, at roughly
+                    <strong>164K requests/sec</strong> aggregate throughput.
+                  </li>
+
+                  <li>
+                    Kept steady-state median latency around
+                    <strong>42–45 &micro;s</strong> while scaling the order book
+                    from 100 to 10,000,000 orders.
+                  </li>
+
+                  <li>
+                    Passed <strong>105 tests</strong> under ASan/UBSan and TSan,
+                    plus dedicated TCP chaos tests covering drip feeds,
+                    fragmentation, and malformed oversized payloads.
+                  </li>
+                </ul>
+
+                <p class="project-note">
+                  Benchmarks were measured locally on an i5-11300H running
+                  Fedora Linux; detailed conditions and raw results are
+                  documented in the repository.
+                </p>
+              </div>
+            </article>
+
+            <!-- KV Store -->
+            <article class="project-card">
+              <div class="project-content">
+                <div class="project-header">
+                  <div>
+                    <h3>C++ Key-Value Store</h3>
+                  </div>
+
+                  <a
+                    href="https://github.com/Jyotish-Kumar29/cpp-kv-store"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="github-link"
+                    aria-label="View C++ Key-Value Store on GitHub"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+
+                <p class="project-tagline">
+                  A single-node concurrent key-value store with a custom TCP
+                  protocol, command parser, Append-Only File persistence, and a
+                  full build, test, sanitizer, soak, and benchmark pipeline.
+                </p>
+
+                <div class="project-tech">
+                  <span>C++</span>
+                  <span>TCP</span>
+                  <span>AOF</span>
+                  <span>GTest</span>
+                  <span>GBench</span>
+                </div>
+
+                <ul class="project-details">
+                  <li>
+                    Built a thread-safe in-memory store with
+                    <strong>Append-Only File persistence</strong> so writes can
+                    be reconstructed across restarts.
+                  </li>
+
+                  <li>
+                    Reached <strong>218,251 requests/sec</strong> in high-stress
+                    benchmarking with 100 persistent concurrent threads.
+                  </li>
+
+                  <li>
+                    Completed a
+                    <strong>10-minute endurance run</strong> processing 108.5
+                    million requests with zero failures.
+                  </li>
+
+                  <li>
+                    Exercised the server at up to
+                    <strong>20,000 concurrent client connections</strong> while
+                    keeping the implementation sanitizer-clean.
+                  </li>
+
+                  <li>
+                    Tested protocol resilience against fragmented and sticky TCP
+                    packets and validated 10,000-key data integrity with zero
+                    read/write errors.
+                  </li>
+                </ul>
+
+                <p class="project-note">
+                  Benchmarks were measured locally on an i5-11300H running
+                  Fedora Linux; exact test conditions and raw logs are available
+                  in the repository.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <h3 class="subsection-title mt-xl">Algorithmic Problem Solving</h3>
+
+          <div class="achievements-grid">
+            <article class="achievement-card leetcode">
+              <div class="achievement-icon">
+                <i class="fas fa-code"></i>
+              </div>
+
+              <div class="achievement-info">
+                <h4>LeetCode</h4>
+                <a
+                  href="https://leetcode.com/u/jyotish__kumar_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="achievement-link"
+                >
+                  Profile <i class="fas fa-external-link-alt"></i>
+                </a>
+
+                <p>
+                  <strong data-stat="leetcode-solved">751</strong> problems
+                  solved; peak contest rating
+                  <strong data-stat="leetcode-peak-rating">1711</strong> (Top
+                  <span data-stat="leetcode-top-percent">13.51</span>%) with a
+                  <span data-stat="leetcode-streak">177</span>-day active
+                  streak.
+                </p>
+              </div>
+            </article>
+
+            <article class="achievement-card gfg">
+              <div class="achievement-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+
+              <div class="achievement-info">
+                <h4>GeeksforGeeks</h4>
+                <a
+                  href="https://www.geeksforgeeks.org/profile/jyotish_kumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="achievement-link"
+                >
+                  Profile <i class="fas fa-external-link-alt"></i>
+                </a>
+
+                <p>
+                  <strong data-stat="gfg-solved">603</strong> problems solved,
+                  coding score
+                  <strong data-stat="gfg-coding-score">2001</strong>,
+                  <span data-stat="gfg-potd-streak">198</span>-day POTD streak,
+                  and Institute Rank
+                  <span data-stat="gfg-institute-rank">65</span>.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SKILLS
+           Skills are grouped by engineering relevance, not as a flat list.
+           ========================================================= -->
+      <section id="skills" class="skills section">
+        <div class="container reveal">
+          <h2 class="section-title">Technical Skills</h2>
+
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3><i class="fas fa-code"></i> Languages</h3>
+              <div class="skill-tags">
+                <span class="tag">C++17</span>
+                <span class="tag">C</span>
+                <span class="tag">Python</span>
+                <span class="tag">SQL</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">HTML/CSS</span>
+              </div>
             </div>
-        </section>
+
+            <div class="skill-category">
+              <h3>
+                <i class="fas fa-network-wired"></i> Systems &amp; Networking
+              </h3>
+              <div class="skill-tags">
+                <span class="tag">epoll</span>
+                <span class="tag">TCP/IP</span>
+                <span class="tag">Socket Programming</span>
+                <span class="tag">Multithreading</span>
+                <span class="tag">Concurrency</span>
+                <span class="tag">Lock Design</span>
+                <span class="tag">AOF Persistence</span>
+                <span class="tag">Low-Latency Optimization</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3><i class="fas fa-vial"></i> Testing &amp; Engineering</h3>
+              <div class="skill-tags">
+                <span class="tag">GTest</span>
+                <span class="tag">GBench</span>
+                <span class="tag">ASan</span>
+                <span class="tag">UBSan</span>
+                <span class="tag">TSan</span>
+                <span class="tag">Load Testing</span>
+                <span class="tag">Chaos Testing</span>
+                <span class="tag">CMake</span>
+                <span class="tag">GitHub Actions</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3><i class="fas fa-brain"></i> Core CS</h3>
+              <div class="skill-tags">
+                <span class="tag">Data Structures</span>
+                <span class="tag">Algorithms</span>
+                <span class="tag">Operating Systems</span>
+                <span class="tag">Computer Networks</span>
+                <span class="tag">Database Systems</span>
+                <span class="tag">Scientific Computing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           EDUCATION
+           Board-exam entries collapsed into a single line under the
+           B.Tech so the section leads with what actually matters.
+           ========================================================= -->
+      <section id="education" class="timeline-section section">
+        <div class="container reveal">
+          <h2 class="section-title">Education</h2>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3>B.Tech in Mathematics and Computing</h3>
+                  <span class="timeline-date">2021 – 2025</span>
+                </div>
+
+                <h4 class="timeline-company">
+                  Indian Institute of Technology (IIT) Guwahati
+                </h4>
+
+                <p class="timeline-location">
+                  <i class="fas fa-map-marker-alt"></i> Guwahati, Assam
+                </p>
+
+                <ul class="timeline-list">
+                  <li>
+                    <strong>Relevant coursework:</strong> Data Structures and
+                    Algorithms, Design and Analysis of Algorithms, Operating
+                    Systems, Database Management Systems, Computer Networks,
+                    Discrete Mathematics, Probability Theory, Monte-Carlo
+                    Simulation, Optimization, Linear Algebra, Financial
+                    Engineering.
+                  </li>
+
+                  <li>
+                    <strong>Prior schooling:</strong> Jawahar Navodaya
+                    Vidyalaya, Etawah (CBSE) — Class 12 Science (PCM + Computer
+                    Science), 2020.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           EXPERIENCE
+           Kept concise: it should explain the transition without competing
+           with the systems projects that are most relevant to target roles.
+           ========================================================= -->
+      <section id="experience" class="timeline-section section">
+        <div class="container reveal">
+          <h2 class="section-title">Experience</h2>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3>Academic Manager (OCFP)</h3>
+                  <span class="timeline-date">May 2025 – August 2026</span>
+                </div>
+
+                <h4 class="timeline-company">
+                  K12 Techno Services (Orchids International School)
+                </h4>
+
+                <p class="timeline-location">
+                  <i class="fas fa-map-marker-alt"></i> Bangalore, KA &amp;
+                  Indore, MP
+                </p>
+
+                <ul class="timeline-list">
+                  <li>
+                    Managed a 5-member team responsible for learning plans,
+                    academic operations, and execution of cross-branch
+                    initiatives.
+                  </li>
+
+                  <li>
+                    Taught Grade 10 Mathematics and focused on analytical
+                    problem-solving at JEE Advanced proficiency.
+                  </li>
+
+                  <li>
+                    Coordinated Physics practicals and curriculum evaluation
+                    across Grades 6–12.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           ABOUT
+           A compact narrative that explains the transition and engineering
+           mindset without repeating the project cards.
+           ========================================================= -->
+      <section id="about" class="about section">
+        <div class="container reveal">
+          <h2 class="section-title">About</h2>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                Systems software and backend engineer with a B.Tech in
+                Mathematics and Computing from <strong>IIT Guwahati</strong>. My
+                work is centered on understanding what happens below the
+                abstraction: sockets, event loops, concurrency, data structures,
+                locking, persistence, and latency.
+              </p>
+
+              <p>
+                The two featured projects are intentionally built end-to-end.
+                They include custom networking, concurrency control, benchmarks,
+                protocol-failure tests, endurance runs, and sanitizer-based
+                verification. The goal is not to claim production scale; it is
+                to show the engineering process used to measure a system and
+                understand where it breaks.
+              </p>
+
+              <p>
+                Before moving into software engineering, I worked in academic
+                management and led a five-person team. That background
+                strengthened the same habits I now apply to systems work:
+                structured problem solving, measurement, iteration, and clear
+                technical reasoning.
+              </p>
+            </div>
+
+            <div class="about-highlights">
+              <div class="highlight-card">
+                <i class="fas fa-server"></i>
+                <h3>Backend Architecture</h3>
+                <p>
+                  Event-driven TCP servers, protocol handling, persistence, and
+                  high-throughput request processing.
+                </p>
+              </div>
+
+              <div class="highlight-card">
+                <i class="fas fa-microchip"></i>
+                <h3>Systems Engineering</h3>
+                <p>
+                  C/C++, concurrency, synchronization, data structures, and
+                  performance reasoning from first principles.
+                </p>
+              </div>
+
+              <div class="highlight-card">
+                <i class="fas fa-vial"></i>
+                <h3>Measured Engineering</h3>
+                <p>
+                  Benchmarks, endurance tests, chaos tests, and ASan/UBSan/TSan
+                  validation with documented limitations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <a href="#home" class="footer-logo">Jyotish Kumar</a>
-            <p>Systems Software and Backend Engineer</p>
-            <div class="footer-socials">
-                <a href="https://github.com/Jyotish-Kumar29" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/jyotish-kumar-" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:jkumar.879688@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-            <div class="footer-contact">
-                <span><i class="fas fa-phone-alt"></i> +91-8822300668</span>
-            </div>
-            <p class="copyright">&copy; 2026 Jyotish Kumar. All Rights Reserved.</p>
+      <div class="footer-content">
+        <a href="#home" class="footer-logo">Jyotish Kumar</a>
+        <p>Systems Software &amp; Backend Engineer</p>
+
+        <div class="footer-socials">
+          <a
+            href="https://github.com/Jyotish-Kumar29"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a
+            href="https://linkedin.com/in/jyotish-kumar-"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+          <a
+            href="mailto:jkumar.879688@gmail.com"
+            aria-label="Email Jyotish Kumar"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
         </div>
+
+        <p class="copyright">&copy; 2026 Jyotish Kumar. All Rights Reserved.</p>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

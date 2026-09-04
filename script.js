@@ -1,4 +1,39 @@
+const STATS = {
+    leetcode: {
+        solved: 751,
+        peakRating: 1711,
+        topPercent: 13.51,
+        streak: 177,
+    },
+    gfg: {
+        solved: 603,
+        codingScore: 2001,
+        potdStreak: 198,
+        instituteRank: 65,
+    },
+};
+
+function applyStats() {
+    const map = {
+        'leetcode-solved': STATS.leetcode.solved,
+        'leetcode-peak-rating': STATS.leetcode.peakRating,
+        'leetcode-top-percent': STATS.leetcode.topPercent,
+        'leetcode-streak': STATS.leetcode.streak,
+        'gfg-solved': STATS.gfg.solved,
+        'gfg-coding-score': STATS.gfg.codingScore,
+        'gfg-potd-streak': STATS.gfg.potdStreak,
+        'gfg-institute-rank': STATS.gfg.instituteRank,
+    };
+
+    Object.entries(map).forEach(([key, value]) => {
+        const el = document.querySelector(`[data-stat="${key}"]`);
+        if (el) el.textContent = value;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    applyStats();
+
     // --- Mobile Menu Toggle ---
     const hamburger = document.querySelector('.hamburger');
     const mobileMenu = document.querySelector('.mobile-menu');
@@ -127,20 +162,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const animateParticles = () => {
             ctx.clearRect(0, 0, width, height);
-            
+
             // Draw connections
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
                 particles[i].draw();
-                
+
                 for (let j = i; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-                    
+
                     if (distance < 150) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(56, 189, 248, ${0.1 - distance/1500})`;
+                        ctx.strokeStyle = `rgba(56, 189, 248, ${0.1 - distance / 1500})`;
                         ctx.lineWidth = 0.5;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);

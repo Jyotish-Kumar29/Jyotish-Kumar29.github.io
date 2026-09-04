@@ -1,15 +1,16 @@
 :root {
-    --bg-main: #020617;
-    --bg-secondary: #0f172a;
-    --bg-tertiary: #1e293b;
-    --accent: #38bdf8;
-    --accent-glow: rgba(56, 189, 248, 0.5);
-    --accent-hover: #7dd3fc;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --glass-bg: rgba(15, 23, 42, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --border-radius: 12px;
+    --bg-main: #0a0d0b;
+    --bg-secondary: #10140f;
+    --bg-tertiary: #182019;
+    --accent: #e8a33d;
+    --accent-glow: rgba(232, 163, 61, 0.35);
+    --accent-hover: #f3b95e;
+    --pass: #5fd694;
+    --text-main: #f3f1ea;
+    --text-muted: #97998f;
+    --glass-bg: rgba(16, 20, 15, 0.75);
+    --glass-border: rgba(243, 241, 234, 0.09);
+    --border-radius: 10px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -33,7 +34,11 @@ body {
 }
 
 h1, h2, h3, h4, .logo {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.stat-num, .tag, .project-tech span, .hero-subtitle, .timeline-date {
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 a {
@@ -45,7 +50,6 @@ ul {
     list-style: none;
 }
 
-/* Background Particle Canvas */
 #particle-canvas {
     position: fixed;
     top: 0;
@@ -56,7 +60,6 @@ ul {
     pointer-events: none;
 }
 
-/* Typography & Utilities */
 .section {
     padding: 100px 5%;
     min-height: 100vh;
@@ -103,10 +106,13 @@ ul {
 
 /* Buttons */
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.8rem 1.8rem;
     border-radius: 30px;
     font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     transition: var(--transition);
     cursor: pointer;
@@ -115,7 +121,7 @@ ul {
 
 .primary-btn {
     background: var(--accent);
-    color: var(--bg-main);
+    color: #17130a;
     box-shadow: 0 4px 15px var(--accent-glow);
 }
 
@@ -132,7 +138,7 @@ ul {
 }
 
 .secondary-btn:hover {
-    background: rgba(56, 189, 248, 0.1);
+    background: rgba(232, 163, 61, 0.1);
     transform: translateY(-2px);
 }
 
@@ -152,7 +158,7 @@ ul {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .nav-content {
@@ -165,7 +171,7 @@ ul {
 
 .logo {
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 1px;
 }
 
@@ -205,11 +211,25 @@ ul {
     color: var(--accent);
 }
 
-.hamburger {
+/* .hamburger / .close-menu are real <button> elements now (for keyboard
+   accessibility) so their native button chrome needs resetting. */
+.hamburger,
+.close-menu {
     display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--text-main);
+}
+
+.hamburger:focus-visible,
+.close-menu:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
 /* Mobile Menu */
@@ -235,8 +255,6 @@ ul {
     position: absolute;
     top: 1.5rem;
     right: 2rem;
-    font-size: 1.8rem;
-    cursor: pointer;
     color: var(--text-muted);
 }
 
@@ -259,7 +277,7 @@ ul {
     color: var(--accent);
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
     position: relative;
 }
@@ -272,19 +290,18 @@ ul {
 
 .greeting {
     color: var(--accent);
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    font-weight: 500;
     margin-bottom: 1rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .name {
     font-size: clamp(3rem, 8vw, 5rem);
     line-height: 1.1;
     margin-bottom: 1rem;
-    background: linear-gradient(to right, #f8fafc, #94a3b8);
+    background: linear-gradient(to right, #f3f1ea, #97998f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -293,19 +310,48 @@ ul {
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     color: var(--text-muted);
     margin-bottom: 1.5rem;
+    font-weight: 500;
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
     margin-bottom: 2.5rem;
-    max-width: 600px;
+    max-width: 620px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.7;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.hero-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-stat .stat-num {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.hero-stat .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
 }
 
 .hero-cta {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
     margin-bottom: 3rem;
@@ -348,10 +394,10 @@ ul {
     60% { transform: translateY(-5px) translateX(-50%); }
 }
 
-/* About Section */
+/* About */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 4rem;
     align-items: center;
 }
@@ -359,11 +405,12 @@ ul {
 .about-text p {
     color: var(--text-muted);
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
 .about-text strong {
     color: var(--accent);
+    font-weight: 600;
 }
 
 .about-highlights {
@@ -381,27 +428,26 @@ ul {
 }
 
 .highlight-card:hover {
-    transform: translateX(10px);
-    border-color: rgba(56, 189, 248, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(232, 163, 61, 0.35);
 }
 
 .highlight-card i {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: var(--accent);
     margin-bottom: 1rem;
 }
 
 .highlight-card h3 {
     margin-bottom: 0.5rem;
+    font-size: 1.1rem;
 }
 
 .highlight-card p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
 }
 
-/* Skills Section */
+/* Skills */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -417,9 +463,7 @@ ul {
 }
 
 .skill-category:hover {
-    transform: translateY(-5px);
-    border-color: rgba(56, 189, 248, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(232, 163, 61, 0.3);
 }
 
 .skill-category h3 {
@@ -428,6 +472,7 @@ ul {
     gap: 0.8rem;
     margin-bottom: 1.5rem;
     color: var(--text-main);
+    font-size: 1.15rem;
 }
 
 .skill-category h3 i {
@@ -437,24 +482,23 @@ ul {
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 0.7rem;
 }
 
 .tag {
-    background: rgba(30, 41, 59, 0.8);
+    background: rgba(24, 32, 25, 0.9);
     color: var(--text-muted);
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
     border: 1px solid var(--glass-border);
     transition: var(--transition);
 }
 
 .tag:hover {
-    background: rgba(56, 189, 248, 0.1);
+    background: rgba(232, 163, 61, 0.1);
     color: var(--accent);
     border-color: var(--accent);
-    transform: translateY(-2px);
 }
 
 /* Experience & Education */
@@ -500,8 +544,7 @@ ul {
 }
 
 .timeline-content:hover {
-    border-color: rgba(56, 189, 248, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(232, 163, 61, 0.3);
 }
 
 .timeline-header {
@@ -515,19 +558,21 @@ ul {
 
 .timeline-header h3 {
     color: var(--accent);
+    font-size: 1.2rem;
 }
 
 .timeline-date {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
     background: var(--bg-tertiary);
-    padding: 0.2rem 0.8rem;
+    padding: 0.25rem 0.8rem;
     border-radius: 20px;
 }
 
 .timeline-company {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
 .timeline-location {
@@ -569,9 +614,7 @@ ul {
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(56, 189, 248, 0.3);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(232, 163, 61, 0.3);
 }
 
 .project-content {
@@ -582,7 +625,7 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .project-header h3 {
@@ -598,7 +641,13 @@ ul {
 
 .github-link:hover {
     color: var(--accent);
-    transform: scale(1.1);
+}
+
+.project-tagline {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
 }
 
 .project-tech {
@@ -609,10 +658,9 @@ ul {
 }
 
 .project-tech span {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--accent);
-    background: rgba(56, 189, 248, 0.1);
+    background: rgba(232, 163, 61, 0.1);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
 }
@@ -628,6 +676,19 @@ ul {
 }
 .project-details li::marker {
     color: var(--accent);
+}
+
+.project-details strong {
+    color: var(--text-main);
+}
+
+.project-note {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--glass-border);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
 }
 
 /* Achievements */
@@ -648,32 +709,30 @@ ul {
 }
 
 .achievement-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(56, 189, 248, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(232, 163, 61, 0.3);
 }
 
 .achievement-icon {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: var(--accent);
     display: flex;
     align-items: flex-start;
 }
 
 .achievement-info h4 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     margin-bottom: 0.3rem;
 }
 
 .achievement-link {
     display: inline-block;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--accent);
     margin-bottom: 1rem;
     transition: var(--transition);
 }
 .achievement-link i {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     margin-left: 0.2rem;
 }
 .achievement-link:hover {
@@ -699,8 +758,8 @@ footer {
 
 .footer-logo {
     font-size: 1.5rem;
-    font-weight: 800;
-    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
     color: var(--text-main);
     display: inline-block;
     margin-bottom: 0.5rem;
@@ -734,7 +793,6 @@ footer {
 .footer-socials a:hover {
     color: var(--accent);
     border-color: var(--accent);
-    transform: translateY(-3px);
 }
 
 .footer-contact {
@@ -767,12 +825,23 @@ footer {
     transform: translateY(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .scroll-indicator {
+        animation: none;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 900px) {
     .about-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .timeline::before {
         left: 0;
     }
@@ -788,19 +857,23 @@ footer {
     .nav-links {
         display: none;
     }
-    
+
     .hamburger {
         display: block;
     }
-    
+
     .hero-cta {
         flex-direction: column;
     }
-    
+
+    .hero-stats {
+        gap: 1.5rem;
+    }
+
     .section {
         padding: 80px 5%;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
